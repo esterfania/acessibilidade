@@ -1,6 +1,15 @@
-# Acessibilidade
+# Acessibilidade na web
+## O que é acessibilidade web de modo geral?
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+A acessibilidade web é uma forma de fazer com que qualquer pessoa, seja qual for a sua situação, consiga utilizar os sites e produtos/serviços digitais. E não estamos falando apenas em acessibilidade para pessoas com deficiências: uma melhor comunicabilidade se aplica em ocasiões diversas, também: pense em um pai, que está usando apenas uma mão para navegar pois está segurando o bebê. Ou ainda, uma situação bem comum, onde alguém está querendo usar o seu produto no transporte público ou em um ambiente barulhento e então não está ouvindo o som, por exemplo.
+
+## O que é acessibilidade web para deficientes visuais?
+
+Deficientes visuais navegam na internet através de leitores de tela que leem o conteúdo das páginas. Por isso, é muito importante que todos os componentes do site estejam organizados, de forma que esse software consiga interpretar corretamente. Um exemplo: se o site possui a imagem de um foguete, é importante que, dentro do código HTML, coloquem a informação “Foguete cinza com janela redonda voando em um céu estrelado” neste elemento. Dessa forma, quando o leitor de tela passar por essa imagem, conseguirá transmitir para quem está escutando, o conteúdo correto daquele site. Escrever sobre cores é importante pois nem sempre uma pessoa com deficiência visual nasceu com esta condição.
+
+# Angular version
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
 ## Development server
 
