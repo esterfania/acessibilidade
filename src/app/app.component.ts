@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'acessibilidade';
-  public value = 'teste';
-  public label = 'testeLabel';
+  public yesNoAnswer = 'no';
+  public label = 'Are you good enough in Angular?';
 }
