@@ -20,7 +20,7 @@ const VALUE_ACESSOR: any = {
   styleUrls: ['./yes-no-button-group.component.scss'],
   providers: [VALUE_ACESSOR],
 })
-export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
+export class YesNoButtonGroupComponent implements ControlValueAccessor {
   @Input() public label = '';
   @Input() public value: string = null;
   @Input() isReadOnly = false;
@@ -35,6 +35,7 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
   public writeValue(value: string): void {
     this.value = value;
     this.onChange(this.value);
+    this.valueChange.emit(this.value);
   }
   public registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
@@ -46,11 +47,8 @@ export class YesNoButtonGroupComponent implements OnInit, ControlValueAccessor {
     this.isReadOnly = isDisabled;
   }
 
-  ngOnInit(): void {}
-
   public activate(value: string) {
-    this.value = value;
-    this.valueChange.emit(this.value);
+    this.writeValue(value);
   }
 }
 enum YesNoButtonGroupOptions {
