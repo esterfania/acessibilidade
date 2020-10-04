@@ -1,6 +1,7 @@
-<div class="button-group">
+<div role="radiogroup" class="button-group">
   <label class="label">{{ label }}</label>
   <button
+    role="radio"
     [class.button-pressed]="value === options.YES"
     type="button"
     (click)="activate(options.YES)"
@@ -9,6 +10,7 @@
     Yes
   </button>
   <button
+    role="radio"
     [class.button-pressed]="value === options.NO"
     type="button"
     (click)="activate(options.NO)"
