@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent {
   title = 'acessibilidade';
-  public yesNoAnswer = 'no';
+  public yesNoAnswer = null;
   public label = 'Are you good enough in Angular?';
   form: FormGroup;
 
