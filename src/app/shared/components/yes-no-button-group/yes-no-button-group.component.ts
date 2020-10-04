@@ -23,6 +23,7 @@ const VALUE_ACESSOR: any = {
 export class YesNoButtonGroupComponent implements ControlValueAccessor {
   @Input() public label = '';
   @Input() public value: string = null;
+  @Input() public disabled = false;
   @Input() isReadOnly = false;
   @Output() valueChange = new EventEmitter<string>();
   public id: string = null;
@@ -46,7 +47,7 @@ export class YesNoButtonGroupComponent implements ControlValueAccessor {
     this.onTouched = fn;
   }
   public setDisabledState?(isDisabled: boolean): void {
-    this.isReadOnly = isDisabled;
+    this.disabled = isDisabled;
   }
 
   public activate(value: string) {
