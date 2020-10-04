@@ -7,14 +7,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'acessibilidade';
-  public yesNoAnswer = null;
   public label = 'Are you good enough in Angular?';
   form: FormGroup;
 
   constructor(formBuilder: FormBuilder) {
     this.form = formBuilder.group({
-      yesNoAnswer: [this.yesNoAnswer, [Validators.required]],
+      yesNoAnswer: [null, [Validators.required]],
     });
   }
 
