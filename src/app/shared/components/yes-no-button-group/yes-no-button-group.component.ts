@@ -3,23 +3,22 @@ import {
   EventEmitter,
   forwardRef,
   Input,
-  OnInit,
   Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { v1 } from 'uuid';
+import { UniqueIdService } from './services/unique-id/unique-id.service';
 
 const VALUE_ACESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => YesNoButtonGroupComponent),
-  multi: true,
+  multi: true
 };
 
 @Component({
   selector: 'app-yes-no-button-group',
   templateUrl: './yes-no-button-group.component.html',
   styleUrls: ['./yes-no-button-group.component.scss'],
-  providers: [VALUE_ACESSOR],
+  providers: [VALUE_ACESSOR, UniqueIdService],
 })
 export class YesNoButtonGroupComponent implements ControlValueAccessor {
   @Input() public label = '';
@@ -31,8 +30,8 @@ export class YesNoButtonGroupComponent implements ControlValueAccessor {
   public onChange = (value: string) => {};
   public onTouched = () => {};
 
-  constructor() {
-    this.id = `yes-no-button-id${v1()}` ;
+  constructor(private uniqueIdService: UniqueIdService) {
+    this.id = this.uniqueIdService.generateUniqueIdWithPrefix('yes-no-button-group');
   }
 
   public writeValue(value: string): void {
