@@ -1,5 +1,14 @@
-import { Component } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ViewChild,
+  TemplateRef,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ModalService,
+  ModalRef,
+} from './shared/components/modal/services/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +18,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent {
   public label = 'Are you good enough in Angular?';
   form: FormGroup;
-
-  constructor(formBuilder: FormBuilder) {
+  @ViewChild('modal') modalTemplateRef: TemplateRef<any>;
+  modalRef: ModalRef;
+  constructor(formBuilder: FormBuilder, private modalService: ModalService) {
     this.form = formBuilder.group({
       yesNoAnswer: [
         {
@@ -22,6 +32,12 @@ export class AppComponent {
   }
 
   public submit(): void {
-    console.log(this.form.value);
+  }
+
+  showModal(): void {
+    this.modalRef = this.modalService.open({
+      templateRef: this.modalTemplateRef,
+      title: 'modal interativo',
+    });
   }
 }
