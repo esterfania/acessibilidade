@@ -21,21 +21,58 @@
   <form [formGroup]="formModal" (ngSubmit)="submitModal()">
     <div class="form-field">
       <label for="firstName">First name</label>
-      <input formControlName="firstName" id="firstName" />
+      <input
+        formControlName="firstName"
+        id="firstName"
+        [attr.aria-invalid]="formModal.get('firstName').invalid"
+      />
+      <span
+        *ngIf="formModal.get('firstName').errors?.required"
+        class="validation-error"
+      >
+        First name is required
+      </span>
     </div>
 
     <div class="form-field">
       <label for="surname">Last name</label>
-      <input formControlName="surname" type="text" id="surname" />
+      <input
+        formControlName="surname"
+        type="text"
+        id="surname"
+        [attr.aria-invalid]="formModal.get('surname').invalid"
+      />
+      <span
+        *ngIf="formModal.get('surname').errors?.required"
+        class="validation-error"
+      >
+        Sur name is required
+      </span>
     </div>
 
     <div class="form-field">
       <label for="age">Age</label>
-      <input formControlName="age" id="age" />
+      <input
+        formControlName="age"
+        id="age"
+        [attr.aria-invalid]="formModal.get('age')"
+      />
+      <span
+        *ngIf="formModal.get('age').errors?.required"
+        class="validation-error"
+      >
+        Age is required
+      </span>
     </div>
 
     <div class="button-group">
-      <button [attr.aria-disabled]="formModal.invalid" class="button button-primary" type="submit">Submit</button>
+      <button
+        [attr.aria-disabled]="formModal.invalid"
+        class="button button-primary"
+        type="submit"
+      >
+        Submit
+      </button>
       <button
         class="button button-secondary"
         type="button"
