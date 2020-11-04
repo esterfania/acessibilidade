@@ -10,12 +10,12 @@ import { KeyboardManagedItemDirective } from './keyboard-maneged-item.directive'
   selector: '[appKm]',
 })
 export class KeyboardManagerDirective {
-  @ContentChildren(KeyboardManagedItemDirective) public items: QueryList<
+  @ContentChildren(KeyboardManagedItemDirective) items: QueryList<
     KeyboardManagedItemDirective
   > = null;
 
   @HostListener('keyup', ['$event'])
-  public managerKeys(event: KeyboardEvent): void {
+  managerKeys(event: KeyboardEvent): void {
     switch (event.key) {
       case 'ArrowUp':
         this.moveFocus(ArrowDirection.RIGHT).focus();
@@ -33,7 +33,7 @@ export class KeyboardManagerDirective {
         break;
     }
   }
-  public moveFocus(direction: ArrowDirection): KeyboardManagedItemDirective {
+  moveFocus(direction: ArrowDirection): KeyboardManagedItemDirective {
     const items = this.items.toArray();
     const currentSelectedIndex = items.findIndex((item) => item.isFocused());
     const targetElementFocus = items[currentSelectedIndex + direction];

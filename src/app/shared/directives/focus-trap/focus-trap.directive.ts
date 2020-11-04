@@ -26,7 +26,7 @@ export class FocusTrapDirective implements AfterViewInit {
   }
 
   @HostListener('keydown', ['$event'])
-  public manageTab(event: KeyboardEvent): void {
+  manageTab(event: KeyboardEvent): void {
     if (event.key !== 'Tab') {
       return;
     }

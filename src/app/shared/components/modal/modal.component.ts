@@ -19,7 +19,7 @@ import { ModalRef } from './models/modal-ref';
 export class ModalComponent {
   @HostBinding('@fade') fade = true;
   @HostBinding('@fadeOut') fadeOut = true;
-  public config: ModalConfig;
-  public modalRef: ModalRef;
+  config: ModalConfig;
+  modalRef: ModalRef;
   constructor(private cdr: ChangeDetectorRef) {}
 }

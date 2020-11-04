@@ -14,8 +14,9 @@ import { ModalService } from './shared/components/modal/services/modal.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public label = 'Are you good enough in Angular?';
+  label = 'Are you good enough in Angular?';
   form: FormGroup;
+  formModal: FormGroup;
   @ViewChild('modal') modalTemplateRef: TemplateRef<any>;
   modalRef: ModalRef;
   constructor(formBuilder: FormBuilder, private modalService: ModalService) {
@@ -27,10 +28,18 @@ export class AppComponent {
         },
       ],
     });
+
+    this.formModal = formBuilder.group({
+      firstName: ['Ester', Validators.required],
+      surname: ['', Validators.required],
+      age: ['', Validators.required],
+    });
   }
 
-  public submit(): void {}
-
+  submit(): void {}
+  submitModal(): void {
+    console.log(this.formModal.getRawValue());
+  }
   showModal(): void {
     this.modalRef = this.modalService.open({
       templateRef: this.modalTemplateRef,

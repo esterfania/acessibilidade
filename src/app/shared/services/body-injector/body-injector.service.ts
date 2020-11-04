@@ -9,7 +9,7 @@ import {
 export class BodyInjectorService {
   constructor(private appRef: ApplicationRef) {}
 
-  public stackBeforeAppRoot(componentRef: ComponentRef<any>): void {
+  stackBeforeAppRoot(componentRef: ComponentRef<any>): void {
     const domElement = this.createDomElement(componentRef);
     const appRoot = document.querySelector('app-root');
     document.body.insertBefore(domElement, appRoot);

@@ -11,7 +11,7 @@ import { UniqueIdService } from '../../services/unique-id/unique-id.service';
 const VALUE_ACESSOR: any = {
   provide: NG_VALUE_ACCESSOR,
   useExisting: forwardRef(() => YesNoButtonGroupComponent),
-  multi: true
+  multi: true,
 };
 
 @Component({
@@ -21,36 +21,38 @@ const VALUE_ACESSOR: any = {
   providers: [VALUE_ACESSOR, UniqueIdService],
 })
 export class YesNoButtonGroupComponent implements ControlValueAccessor {
-  @Input() public label = '';
-  @Input() public value: string = null;
-  @Input() public disabled = false;
+  @Input() label = '';
+  @Input() value: string = null;
+  @Input() disabled = false;
   @Input() isReadOnly = false;
   @Output() valueChange = new EventEmitter<string>();
-  public id: string = null;
-  public options = YesNoButtonGroupOptions;
-  public onChange = (value: string) => {};
-  public onTouched = () => {};
+  id: string = null;
+  options = YesNoButtonGroupOptions;
+  onChange = (value: string) => {};
+  onTouched = () => {};
 
   constructor(private uniqueIdService: UniqueIdService) {
-    this.id = this.uniqueIdService.generateUniqueIdWithPrefix('yes-no-button-group');
+    this.id = this.uniqueIdService.generateUniqueIdWithPrefix(
+      'yes-no-button-group'
+    );
   }
 
-  public writeValue(value: string): void {
+  writeValue(value: string): void {
     this.value = value;
     this.onChange(this.value);
     this.valueChange.emit(this.value);
   }
-  public registerOnChange(fn: (value: string) => void): void {
+  registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;
   }
-  public registerOnTouched(fn: () => void): void {
+  registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
-  public setDisabledState?(isDisabled: boolean): void {
+  setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
   }
 
-  public activate(value: string) {
+  activate(value: string) {
     this.writeValue(value);
   }
 }
