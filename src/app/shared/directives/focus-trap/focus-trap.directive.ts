@@ -10,7 +10,7 @@ import {
 })
 export class FocusTrapDirective implements AfterViewInit {
   private firstFocusableElement: HTMLElement = null;
-  private lastFocusableElemnt: HTMLElement = null;
+  private lastFocusableElement: HTMLElement = null;
   constructor(private elementRef: ElementRef<any>) {}
   ngAfterViewInit(): void {
     const focusableElements = this.elementRef.nativeElement.querySelectorAll(`
@@ -21,7 +21,7 @@ export class FocusTrapDirective implements AfterViewInit {
       input:not([disabled]),
       select:not([disabled])`) as Array<HTMLElement>;
     this.firstFocusableElement = focusableElements[0];
-    this.lastFocusableElemnt = focusableElements[focusableElements.length - 1];
+    this.lastFocusableElement = focusableElements[focusableElements.length - 1];
     this.firstFocusableElement.focus();
   }
 
@@ -35,9 +35,9 @@ export class FocusTrapDirective implements AfterViewInit {
       event.shiftKey &&
       document.activeElement === this.firstFocusableElement
     ) {
-      this.lastFocusableElemnt.focus();
+      this.lastFocusableElement.focus();
       event.preventDefault();
-    } else if (document.activeElement === this.lastFocusableElemnt) {
+    } else if (document.activeElement === this.lastFocusableElement) {
       this.firstFocusableElement.focus();
       event.preventDefault();
     }
