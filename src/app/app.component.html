@@ -22,11 +22,13 @@
     <div class="form-field">
       <label for="firstName">First name</label>
       <input
+        aria-describedby="firstname-error"
         formControlName="firstName"
         id="firstName"
         [attr.aria-invalid]="formModal.get('firstName').invalid"
       />
       <span
+        id="firstname-error"
         *ngIf="formModal.get('firstName').errors?.required"
         class="validation-error"
       >
@@ -37,12 +39,14 @@
     <div class="form-field">
       <label for="surname">Last name</label>
       <input
+        aria-describedby="surname-error"
         formControlName="surname"
         type="text"
         id="surname"
         [attr.aria-invalid]="formModal.get('surname').invalid"
       />
       <span
+        id="surname-error"
         *ngIf="formModal.get('surname').errors?.required"
         class="validation-error"
       >
@@ -53,11 +57,13 @@
     <div class="form-field">
       <label for="age">Age</label>
       <input
+        aria-describedby="age-error"
         formControlName="age"
         id="age"
         [attr.aria-invalid]="formModal.get('age')"
       />
       <span
+        id="age-error"
         *ngIf="formModal.get('age').errors?.required"
         class="validation-error"
       >
