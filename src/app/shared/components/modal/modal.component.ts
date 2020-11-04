@@ -8,6 +8,7 @@ import {
 import { fade } from '../../animations/fade';
 import { ModalConfig } from './interfaces/modal-config';
 import { fadeOut } from '../../animations/fadeOut';
+import { ModalRef } from './models/modal-ref';
 
 @Component({
   selector: 'app-modal',
@@ -19,6 +20,6 @@ export class ModalComponent {
   @HostBinding('@fade') fade = true;
   @HostBinding('@fadeOut') fadeOut = true;
   public config: ModalConfig;
-
+  public modalRef: ModalRef;
   constructor(private cdr: ChangeDetectorRef) {}
 }

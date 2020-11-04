@@ -5,10 +5,8 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  ModalService,
-  ModalRef,
-} from './shared/components/modal/services/modal.service';
+import { ModalRef } from './shared/components/modal/models/modal-ref';
+import { ModalService } from './shared/components/modal/services/modal.service';
 
 @Component({
   selector: 'app-root',
@@ -31,8 +29,7 @@ export class AppComponent {
     });
   }
 
-  public submit(): void {
-  }
+  public submit(): void {}
 
   showModal(): void {
     this.modalRef = this.modalService.open({
