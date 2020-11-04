@@ -38,6 +38,9 @@ export class AppComponent {
 
   submit(): void {}
   submitModal(): void {
+    if (this.formModal.invalid) {
+      return;
+    }
     console.log(this.formModal.getRawValue());
   }
   showModal(): void {
