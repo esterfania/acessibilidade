@@ -5,6 +5,9 @@
 >
   <div
     class="modal-content"
+    role="dialog"
+    area-modal="true"
+    [attr.aria-label]="config.title"
     appFocusTrap
     appFocusBack
     (click)="$event.stopPropagation()"
